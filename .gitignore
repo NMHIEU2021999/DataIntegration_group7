@@ -1,0 +1,6 @@
+.idea
+venv
+Crawl/driver
+Crawl/run.sh
+Crawl/Crawl/__pycache__
+Crawl/Crawl/spiders/__pycache__
