@@ -31,4 +31,4 @@ def get_url_item(url: str, max_page: int, file_name: str):
     save_file(list_url_item, file_name)
 
 
-get_url_item(url_book, max_page=50, file_name='Crawl/Url/tiki/book.json')
+get_url_item(url_book, max_page=250, file_name='Crawl/Url/tiki/book.json')
