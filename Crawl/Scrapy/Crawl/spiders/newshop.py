@@ -1,7 +1,6 @@
 import scrapy
 from pymongo import MongoClient
 
-
 client = MongoClient("mongodb+srv://dataintergration:nhom7@cluster0.x0eh0.mongodb.net/test?retryWrites=true&w=majority")
 
 database =client['DataIntegration']
@@ -28,7 +27,7 @@ class BookSpider(scrapy.Spider):
             'image_url': response.xpath('//div[@class="preview-image"]/img/@src').get(),
             'name': response.xpath('//h1[@class="product-title"]/text()').get(),
             'author_name': response.xpath('//td[text()="Tác Giả"]/following-sibling::td/a/h3/text()').get(),
-            'price': response.xpath('//span[@class="price sale-price"]/text()').get(),
+            'price': response.xpath('//del[@class="old-price"]/text()').get(),
             'provider': response.xpath('//td[text()="Công ty phát hành"]/following-sibling::td/a/h3/text()').get(),
             'publisher': response.xpath('//td[text()="Nhà Xuất bản"]/following-sibling::td/a/h3/text()').get(),
             'num_page': response.xpath('//td[text()="Số Trang"]/following-sibling::td/a/h3/text()').get(),
@@ -37,7 +36,23 @@ class BookSpider(scrapy.Spider):
             'release_year': response.xpath('//td[text()="Năm Xuất Bản"]/following-sibling::td/a/h3/text()').get()
         }
 
+        if data['price'] is None:
+            data['price'] = response.xpath('//span[@class="price"]/text()').get()
         if data['price'] is not None:
-            data['price'] = data['price'][:-1]
+            data['price'] = data['price'][:-1].replace('.', '')
+
+        if data['size'] is not None:
+            data['size'] = data['size'][:-3].replace(' ', '')
+            arr = data['size'].split('x')
+            if '.' in arr[0]:
+                arr[0] = arr[0].replace('.', '')
+            else:
+                arr[0] = int(arr[0]) * 10
+            if '.' in arr[1]:
+                arr[1] = arr[1].replace('.', '')
+            else:
+                arr[1] = int(arr[1]) * 10
+
+            data['size'] = str(arr[0]) + 'x' + str(arr[1])
 
         newshop_collections.replace_one({"_id": data["_id"]}, data, upsert=True)
