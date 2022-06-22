@@ -6,19 +6,22 @@ const bookController = {};
 bookController.search = async (req, res, next) => {
     const options = {
         page: req.query.page || 1,
-        limit: 12,
+        limit: req.query.perpage || 12,
     };
+
+    console.log(req.query)
+    console.log(req.body)
 
     var query = {}
     var key = req.body.key || "";
-    var priceType = req.body.priceType || null;
+    var priceType = req.body.price || null;
     var author = req.body.author || "";
-    var publisher = req.body.publiser || "";
+    var publisher = req.body.publisher || "";
     var year = req.body.year;
 
     query["name"] = { "$regex": key, "$options": "i" };
+    query["author_name"] = { "$regex": author, "$options": "i" };
     if (publisher) query["publisher"] = publisher;
-    if (author) query["author_name"] = author;
     if (year) query["release_year"] = year;
     if (priceType) {
         var lower_bound = 0;

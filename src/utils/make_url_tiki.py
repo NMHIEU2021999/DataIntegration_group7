@@ -3,17 +3,17 @@ import json
 from tqdm import tqdm
 import requests
 
-url_book = "https://tiki.vn/api/personalish/v1/blocks/listings?limit=48&category=8322&page={""}&urlKey={""}"
-list_key = [
-    "nha-sach-tiki", 
-    "sach-van-hoc",
-    "sach-kinh-te",
-    "sach-truyen-thieu-nhi",
-    "sach-ky-nang-song",
-    "sach-kien-thuc-tong-hop",
-    "khoa-hoc-ky-thuat",
-    "lich-su-dia-ly",
-    "truyen-tranh",           
+url_book = "https://tiki.vn/api/personalish/v1/blocks/listings?limit=48&page={""}&category={""}&urlKey=nha-sach-tiki"
+list_cat = [
+    "8322", 
+    "839", 
+    "846",
+    "393",
+    "870",
+    "873",
+    "879",
+    "880",
+    "1084",
  ]
 
 def save_file(data, file_name):
@@ -23,10 +23,10 @@ def save_file(data, file_name):
 
 def get_url_item(url: str, max_page: int, file_name: str):
     final_data = []
-    for key in list_key:
+    for cat in list_cat:
         for i in tqdm(range(1, max_page)):
             try:
-                url_temp = url.format(i, key)
+                url_temp = url.format(i, cat)
                 response = requests.get(url_temp, headers={
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
                 })

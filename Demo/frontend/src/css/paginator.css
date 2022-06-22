@@ -1,0 +1,25 @@
+.paging{
+    margin-top: auto;
+    height: 80px;
+    font-family: monospace;
+    color: #007bff;
+    font-size: 18px;
+    user-select: none;
+    margin-bottom: 56px;
+}
+.paging .active{
+    pointer-events: none;
+}
+.paging li:hover{
+    cursor: pointer;
+}
+.paging .page-link:hover{
+    background-color: #90caf9;
+    border: solid 1px #90caf9;
+    color: #fff !important;
+}
+
+.disable{
+    color: #9E9E9E !important;
+    pointer-events: none;
+}

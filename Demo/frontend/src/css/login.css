@@ -1,0 +1,39 @@
+
+.login-form .row{
+    margin-top: 16px;
+    align-items: center;
+}
+.login-heading{
+    font-size: 36px;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 22px;
+}
+.login-form-container{
+    min-height: 60vh;
+    width: 96%;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    background-color: #ffffff;
+}
+.login-form .row{
+    margin-top: 16px;
+    align-items: center;
+}
+.login-heading{
+    font-size: 36px;
+    text-align: center;
+    margin-top: 72px;
+    margin-bottom: 22px;
+}
+.failed-login{
+    justify-content: center;
+    color: red;
+}
+.success-register{
+    justify-content: center;
+}
+
+.row .col-1{
+    min-width: 180px;
+}
