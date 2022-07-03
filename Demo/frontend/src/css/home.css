@@ -1,4 +1,4 @@
-.content-container{
+.content-container {
     min-height: calc(100vh - 186px);
     background-color: #e6eff7;
     display: flex;
@@ -7,54 +7,63 @@
     min-width: 1120px;
 }
 
-.content-wrapper{
+.content-wrapper {
     display: flex;
     position: relative;
 }
-.search-bar{
+
+.search-bar {
     width: 96%;
     height: 120px;
     background-color: #ffffff;
     margin-top: 20px;
     border-radius: 1px;
 }
-.select-box{
+
+.select-box {
     margin-left: 16px;
     position: relative;
 }
-.search-bar-header{
+
+.search-bar-header {
     margin-top: 8px;
     margin-left: 8px;
 }
-.search-bar .row, .post-list .row{
+
+.search-bar .row,
+.post-list .row {
     margin-left: 0px;
     margin-right: 0px;
     white-space: nowrap;
     align-items: center;
 }
-.search-bar .select{
+
+.search-bar .select {
     padding-left: 28px;
     height: 32px;
     border: solid 1px #BDBDBD;
 }
-.select-icon{
+
+.select-icon {
     position: absolute;
     top: 7px;
     left: 8px;
 }
-.search-bar form button{
+
+.search-bar form button {
     margin-left: 24px;
     margin-right: 16px;
     padding-top: 4px;
     padding-bottom: 4px;
 }
 
-.post-list{
+.post-list {
     width: 90%;
     margin-bottom: 40px;
     padding-top: 6px;
 }
-.short-post{
+
+.short-post {
     position: relative;
     width: 100%;
     height: 246px;
@@ -63,41 +72,49 @@
     background-color: #ffffff;
     padding-left: 16px;
 }
-.post-list .row{
+
+.post-list .row {
     margin-left: 0px;
     margin-right: 0px;
     white-space: nowrap;
     align-items: center;
 }
-.short-info{
+
+.short-info {
     margin-left: 40px;
     max-width: 60%;
     overflow: hidden;
 }
-.short-info p{
+
+.short-info p {
     margin: 0;
 }
-.btn-container{
+
+.btn-container {
     position: absolute;
     top: 28px;
     right: 56px;
     width: 100px;
 }
-.contest-name{
+
+.contest-name {
     font-weight: bold;
     font-size: 24px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.price{
+
+.price {
     color: red;
     font-weight: bold;
     margin-left: 4px;
 }
-div.short-post.row{
+
+div.short-post.row {
     color: #1976D2;
 }
-.paging{
+
+.paging {
     margin-top: auto;
     height: 80px;
     font-family: monospace;
@@ -105,19 +122,23 @@ div.short-post.row{
     font-size: 18px;
     user-select: none;
 }
-.paging .active{
+
+.paging .active {
     pointer-events: none;
 }
-.paging .page-link:hover{
+
+.paging .page-link:hover {
     background-color: #90caf9;
     border: solid 1px #90caf9;
     color: #fff !important;
 }
-.disable{
+
+.disable {
     color: #9E9E9E;
     pointer-events: none;
 }
-.short-post a:hover{
+
+.short-post a:hover {
     text-decoration: none;
 }
 
@@ -125,6 +146,7 @@ div.short-post.row{
     position: relative;
     display: inline-block;
 }
+
 .autocomplete-items {
     position: absolute;
     border: 1px solid #d4d4d4;
@@ -134,51 +156,62 @@ div.short-post.row{
     top: 100%;
     left: 15px;
     right: 15px;
-  }
+}
+
 .autocomplete-items div {
     padding: 8px 10px 8px 10px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
 }
+
 .autocomplete-items div:hover {
     background-color: #e9e9e9;
 }
+
 .autocomplete-active {
     background-color: DodgerBlue !important;
     color: #ffffff;
-}.search-bar form button.text-search{
+}
+
+.search-bar form button.text-search {
     margin-left: 0;
     padding-top: 4px;
     padding-bottom: 4px;
     height: 40px;
     cursor: pointer;
 }
-.owner-option{
+
+.owner-option {
     position: absolute;
     top: 20px;
     right: 170px;
 }
-.owner-option button.btn{
+
+.owner-option button.btn {
     height: 39px;
     margin-left: 4px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.admin-option{
+
+.admin-option {
     position: absolute;
     top: 20px;
     right: 37px;
 }
-.admin-home-option{
+
+.admin-home-option {
     position: absolute;
     top: 20px;
     right: 165px;
 }
-.admin-option button .admin-home-option button{
+
+.admin-option button .admin-home-option button {
     margin-left: 4px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.btn-reportdetail-container{
+
+.btn-reportdetail-container {
     position: absolute;
     top: 158px;
     right: 38px;
@@ -193,38 +226,40 @@ div.short-post.row{
     cursor: pointer;
     font-size: 22px;
     font-weight: 400;
-  }
-  
-  .btn-detail span {
+}
+
+.btn-detail span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  .btn-detail span:after {
+}
+
+.btn-detail span:after {
     content: "\00bb";
     position: absolute;
     opacity: 0;
     top: -1;
     right: -10px;
     transition: 0.5s;
-  }
-  
-  .btn-detail:hover span {
+}
+
+.btn-detail:hover span {
     padding-right: 25px;
-  }
-  .btn-detail:hover {
+}
+
+.btn-detail:hover {
     background: #ff9800;
     border: solid 1px #ff9800;
     color: white;
-  }
-  
-  .btn-detail:hover span:after {
+}
+
+.btn-detail:hover span:after {
     opacity: 1;
     right: 0;
-  }
-  .btn-detail {
+}
+
+.btn-detail {
     background: #3f51b5;
     border: solid 1px #3f51b5;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -232,8 +267,18 @@ div.short-post.row{
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 16px;
-  }
-  
-  .logo-name {
+}
+
+.logo-name {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+}
+
+.des_text {
+    font-size: 16px;
+}
+
+.numBook {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3f51b5;
+}

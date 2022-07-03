@@ -42,8 +42,8 @@ const booksSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-}, { collection: 'newshop' });
+}, { collection: 'Data' });
 
 booksSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('newshop', booksSchema);
+module.exports = mongoose.model('Data', booksSchema);

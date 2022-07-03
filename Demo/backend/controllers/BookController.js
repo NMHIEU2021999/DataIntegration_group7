@@ -9,8 +9,8 @@ bookController.search = async (req, res, next) => {
         limit: req.query.perpage || 12,
     };
 
-    console.log(req.query)
-    console.log(req.body)
+    // console.log(req.query)
+    // console.log(req.body)
 
     var query = {}
     var key = req.body.key || "";
@@ -53,14 +53,23 @@ bookController.search = async (req, res, next) => {
                 break;
         }
         query["$and"] = [
-            { "$expr": { "$gte": [{ "$toInt": "$price" }, lower_bound] } },
-            { "$expr": { "$lt": [{ "$toInt": "$price" }, upper_bound] } }
+            { "$expr": { "$gte": [{'$convert': { 
+                'input': "$price", 
+                'to': "int",
+                'onError': -1,
+              } }, lower_bound] } },
+            { "$expr": { "$lt": [{'$convert': { 
+                'input': "$price", 
+                'to': "int",
+                'onError': -1,
+              } }, upper_bound] } }
         ]
     }
 
 
     BookModel.paginate(query, options, function (err, result) {
         if (err) {
+            console.log(err)
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
                 message: err.message
             });

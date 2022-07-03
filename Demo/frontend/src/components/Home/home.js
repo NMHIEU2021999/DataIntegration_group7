@@ -261,7 +261,7 @@ export default class Home extends React.Component {
                 <div key={index} className="short-post row" style={{ borderRadius: "5px" }}>
                     <a href={book.url} target="_blank">
                         <img
-                            src={book.image_url ? book.image_url : defaultImge}
+                            src={book.image_url !== 'No image_url' && book.image_url !== 'No image'  ? book.image_url : defaultImge}
                             alt="Main Image"
                             height="160px"
                             width="215px"
@@ -310,7 +310,7 @@ export default class Home extends React.Component {
             <div className="content-container container-fluid ">
                 <div
                     className="search-bar"
-                    style={{ height: "228px", borderRadius: "6px" }}>
+                    style={{ height: "268px", borderRadius: "6px" }}>
                     <p className="search-bar-header " style={{ height: "10px", marginLeft: '12px', marginTop: '16px' }}>
                         <b>Tìm kiếm theo:</b>
                     </p>
@@ -331,10 +331,10 @@ export default class Home extends React.Component {
                                                 name="searchKey"
                                             />
                                         </div>
-                                    
+
                                     </div>
                                     <div className="row" style={{ width: '100%', paddingBottom: '10px' }}>
-                                    <div className='col-3'>
+                                        <div className='col-3'>
                                             <b>Tên tác giả:</b>
                                             <input
                                                 type="text"
@@ -345,7 +345,7 @@ export default class Home extends React.Component {
                                                 name="author"
                                             />
                                         </div>
-                                  
+
                                         <div className='col-3'>
                                             <b>Khoảng giá:</b>
                                             <Select components={{ IndicatorSeparator: () => null }} options={[               //price
@@ -378,15 +378,15 @@ export default class Home extends React.Component {
                                                     label: 'Trên 1.000.000'
                                                 }
                                             ]}
-                                                placeholder="Khoảng Giá" onChange={(e) => this.handlePriceChange(e)} isLoading = {this.state.isLoading} />
+                                                placeholder="Khoảng Giá" onChange={(e) => this.handlePriceChange(e)} isLoading={this.state.isLoading} />
                                         </div>
                                         <div className='col-3'>
                                             <b> Nhà xuất bản:</b>
-                                            <Select options={this.state.listPublisher} onChange={(e) => this.handlePublisherChange(e)} isLoading = {this.state.isLoading} placeholder="Nhà xuất bản" />
+                                            <Select options={this.state.listPublisher} onChange={(e) => this.handlePublisherChange(e)} isLoading={this.state.isLoading} placeholder="Nhà xuất bản" />
                                         </div>
                                         <div className='col-3'>
                                             <b> Năm xuất bản:</b>
-                                            <Select options={this.state.listYear} onChange={(e) => this.handlYearChange(e)} isLoading = {this.state.isLoading} placeholder="Năm xuất bản" />
+                                            <Select options={this.state.listYear} onChange={(e) => this.handlYearChange(e)} isLoading={this.state.isLoading} placeholder="Năm xuất bản" />
                                         </div>
                                     </div>
                                 </div>
@@ -402,6 +402,10 @@ export default class Home extends React.Component {
                             </button>
                         </div>
                     </div>
+                    <div className="row" style={{ width: '100%', paddingBottom: '20px', marginTop: '12px' , paddingLeft : '22px'}}>
+                        <p className='des_text'>Số sách tìm thấy: <span className='numBook'>{this.state.pagination.total}</span></p>
+                    </div>
+
                 </div>
 
 
